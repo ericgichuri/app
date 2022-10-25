@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Gichuri | Admin</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/css/bootstrap.min.css')}}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='images/ESSLOGO.png')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/admin.css')}}">
+</head>
+<body>
+<div class="navbar">
+	<div class="logo">
+		<img src="{{url_for('static',filename='images/ESSLOGO.png')}}" height="40" width="40">
+	</div>
+	<div>
+		<h6>Eric Gichuri</h6>
+	</div>
+	<div class="d-flex">
+		<div class="mx-1"><a href="/">Home</a></div>
+		<div class="mx-1"><a href="/Blog">Blog</a></div>
+	</div>
+</div>
+<div class="mainholder d-flex">
+<div class="sidebar">
+	<div class="d-flex justify-content-center align-items-center">
+		<img src="{{url_for('static',filename='images/users/ericsoftwares.png')}}" height="100" width="100" class=" border border-light p-2">
+	</div>
+	<div><p class="text-center">{{userfullname}}</p></div>
+	<div class="menuholder">
+		<div class="listdiv"><li>Dashboard</li></div>
+		<div class="listdiv"><li class="btnaddproject">Add Project</li></div>
+		<div class="listdiv"><li class="btnviewprojects">View Project</li></div>
+		<div class="listdiv"><li class="btnaddblog">Add Blog</li></div>
+		<div class="listdiv"><li>View Posts</li></div>
+		<div class="listdiv"><li>View Users</li></div>
+		<div class="listdiv"><li class="btnlogout">Logout</li></div>
+	</div>
+</div>
+<div class="maincontainer container-fluid p-0" style="overflow-y: auto;">
+	{% if 'adminid' in session %}
+	{{adminid}}<br>
+	{{userfullname}}
+	{% else %}
+	{{url_for('adminlogin')}}
+	{% endif %}
+</div>
+
+</div>
+<div class="footer">
+	<h6 class="text-center">Developed By: <a href="mailto:ericgichuri2605@gmail.com">Eric Gichuri</a></h6>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/admin.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Gichuri | Blog</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='images/ESSLOGO.png')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/blog.css')}}">
+</head>
+<body>
+<div class="navbar">
+	<div class="navholder">
+        <img src="{{url_for('static',filename='images/ESSLOGO.png')}}" height="40" width="40">
+        <h6 class="mr-auto ml-2">Eric Gichuri</h6>
+        <h6 class="mr-auto" style="font-family: Forte;font-size: 20px;">Welcome</h6>
+        <ul class="list-unstyled text-center ml-auto mr-0">
+            <li class="menulist list-inline-item"><a href="/">Home</a></li>
+			<li class="menulist list-inline-item"><a href="/Service">Services</a></li>
+			<li class="menulist list-inline-item"><a href="/Projects">Projects</a></li>
+			<li class="menulist list-inline-item"><a href="/Blog">Blog</a></li>
+			<li class="menulist list-inline-item"><a href="/Contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="menubtnhol" data="hidden"><img src="{{url_for('static',filename='icons/menubtn.png')}}" height="18" width="18"></div>
+</div>
+<div class="mainmenu">
+	<div class="d-flex justify-content-center align-items-center blogname">
+		<img src="{{url_for('static',filename='images/monitor.png')}}" height="100" width="210">
+		<h6 class="">Eric Gichuri Blog</h6>
+	</div>
+	<div class="blogmenu d-flex align-items-center justify-content-start">
+		<div class="blogmenud1 d-flex justify-content-center">
+			<h6 class="text-center">Menu</h6>
+		</div>
+		<div class="d-flex align-items-center justify-content-around blogsubmenu">
+			<div class="ml-2 mr-auto menubtnhol1" data="hidden"><img src="{{url_for('static',filename='icons/menubtn.png')}}" height="18" width="18"></div>
+			<ul class="bsubmenus">
+				<li class="text-center"><a href="">Home</a></li>
+				<li class="text-center"><a href="">Programming</a></li>
+				<li class="text-center"><a href="">Softwares</a></li>
+				<li class="text-center"><a href="">Computers</a></li>
+				<li class="text-center"><a href="">Phone</a></li>
+				<li class="text-center"><a href="">Motivation</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container-fluid mymaincontainer">
+	<div class="row justify-content-center highlightdiv">
+		<div class="col-md-3 col-sm-4 col-xs-5 latesthlgtdiv">
+			<h5 class="text-center">Latest</h5>
+			<div class="container-fluid mylatestblogdiv">
+				<div class="row justify-content-center">
+					<div class="col-md-12">
+						{% for myltblog in mylatestblog %}
+						<div class="divholding bg-white px-1 py-1 mt-1">
+						<a href="{{myltblog[1]}}" class="row justify-content-start align-items-center">
+							<div class="col-3">
+								<img src="/static/images/bloguploads/{{myltblog[6]}}" height="40" width="40" class="0img-fluid">
+							</div>
+							<div class="col-8">
+								<p class="text-center p-0 my-1">{{myltblog[1]}}</p>
+							</div>
+						</a>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-4 col-xs-6 recommendedhlgtdiv">
+			<h5 class="text-center">Recommended</h5>
+			<div class="container-fluid myrmblogdiv">
+				<div class="row justify-content-center">
+					<div class="col-md-12">
+						{% for myrmblog in myrecommendedblog %}
+						<div class="my-1 divholding bg-white px-1">
+						<a href="{{myrmblog[1]}}" id="{{myrmblog[1]}}" class="row justify-content-start align-items-center p-1">
+							<div class="col-3">
+								<img src="/static/images/bloguploads/{{myrmblog[6]}}" width="60" class="img-fluido" height="60">
+							</div>
+							<div class="col-6">
+								<p class="text-center p-0 my-1">{{myrmblog[1]}}</p>
+							</div>
+						</a>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-5 trendinghlgtdiv">
+			<h5 class="text-center">Trending</h5>
+			<div class="container-fluid mytrendingblogdiv">
+				<div class="row justify-content-center">
+					<div class="col-md-12">
+						{% for mytrblog in mytrendingblog %}
+						<div class="divholding bg-white px-1 py-1 mt-1">
+						<a href="{{mytrblog[1]}}" class="row justify-content-start align-items-center">
+							<div class="col-3">
+								<img src="/static/images/bloguploads/{{mytrblog[6]}}" height="40" width="40" class="oimg-fluid">
+								
+							</div>
+							<div class="col-8">
+								<p class="text-center p-0 my-1">{{mytrblog[1]}}</p>
+							</div>
+						</a>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center programmingdiv">
+		<div class="col-md-12 div1">
+			<span></span>
+			<h5 class="text-center px-4">Programming</h5>
+			<span></span>
+		</div>
+		<div class="col-md-12">
+			<div class="row justify-content-center">
+				{% for mypgblog in myprogrammingblog %}
+				<div class="col-md-4 p-1 mx-1 contentdiv">
+					<div class="row justify-content-center">
+						<div class="col-4">
+							<img class="bg-dark" src="/static/images/bloguploads/{{mypgblog[6]}}" height="100" width="100">
+						</div>
+						<div class="col-8">
+							<h6>{{mypgblog[1]}}</h6>
+							<div class="textplace">
+								<p class="p-0 m-0">{{mypgblog[4]}}</p>
+							</div>
+							<div>
+								<span class="badge badge-sm">Posted: {{mypgblog[7]}}</span>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<span class="badge badge-hashtag badge-sm"># {{mypgblog[3]}}</span>
+							<span class="badge badge-sm">Author: {{mypgblog[9]}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center Softwaresdiv">
+		<div class="col-md-12 div1">
+			<span></span>
+			<h5 class="text-center px-4">Softwares</h5>
+			<span></span>
+		</div>
+		<div class="col-md-12">
+			<div class="row justify-content-center">
+				{% for mysfblog in mysoftwaresblog %}
+				<div class="col-md-4 p-1 mx-1 contentdiv">
+					<div class="row justify-content-center">
+						<div class="col-4">
+							<img class="bg-dark" src="/static/images/bloguploads/{{mysfblog[6]}}" height="100" width="100">
+						</div>
+						<div class="col-8">
+							<h6>{{mysfblog[1]}}</h6>
+							<div class="textplace">
+								<p class="p-0 m-0">{{mysfblog[4]}}</p>
+							</div>
+							<div>
+								<span class="badge badge-sm">Posted: {{mysfblog[7]}}</span>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<span class="badge badge-hashtag badge-sm"># {{mysfblog[3]}}</span>
+							<span class="badge badge-sm">Author: {{mysfblog[9]}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center computersdiv">
+		<div class="col-md-12 div1">
+			<span></span>
+			<h5 class="text-center px-4">Computers</h5>
+			<span></span>
+		</div>
+		<div class="col-md-12">
+			<div class="row justify-content-center">
+				{% for mycompblog in mycomputersblog %}
+				<div class="col-md-4 p-1 mx-1 contentdiv">
+					<div class="row justify-content-center">
+						<div class="col-4">
+							<img class="bg-dark" src="/static/images/bloguploads/{{mycompblog[6]}}" height="100" width="100">
+						</div>
+						<div class="col-8">
+							<h6>{{mycompblog[1]}}</h6>
+							<div class="textplace">
+								<p class="p-0 m-0">{{mycompblog[4]}}</p>
+							</div>
+							<div>
+								<span class="badge badge-sm">Posted: {{mycompblog[7]}}</span>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<span class="badge badge-hashtag badge-sm"># {{mycompblog[3]}}</span>
+							<span class="badge badge-sm">Author: {{mycompblog[9]}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center phonediv">
+		<div class="col-md-12 div1">
+			<span></span>
+			<h5 class="text-center px-4">Phones</h5>
+			<span></span>
+		</div>
+		<div class="col-md-12">
+			<div class="row justify-content-center">
+				{% for mypnblog in myphoneblog %}
+				<div class="col-md-4 p-1 mx-1 contentdiv">
+					<div class="row">
+						<div class="col-4">
+							<img class="bg-dark" src="/static/images/bloguploads/{{mypnblog[6]}}" height="100" width="100">
+						</div>
+						<div class="col-8">
+							<h6>{{mypnblog[1]}}</h6>
+							<div class="textplace">
+								<p class="p-0 m-0">{{mypnblog[4]}}</p>
+							</div>
+							<div>
+								<span class="badge badge-sm">Posted: {{mypnblog[7]}}</span>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<span class="badge badge-hashtag badge-sm"># {{mypnblog[3]}}</span>
+							<span class="badge badge-sm">Author: {{mypnblog[9]}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center motivationdiv">
+		<div class="col-md-12 div1">
+			<span></span>
+			<h5 class="text-center px-4">Motivations</h5>
+			<span></span>
+		</div>
+		<div class="col-md-12">
+			<div class="row justify-content-center">
+				{% for mymtblog in mymotivationblog %}
+				<div class="col-md-4 p-1 mx-1 contentdiv">
+					<div class="row">
+						<div class="col-4">
+							<img class="bg-dark" src="/static/images/bloguploads/{{mymtblog[6]}}" height="100" width="100">
+						</div>
+						<div class="col-8">
+							<h6>{{mymtblog[1]}}</h6>
+							<div class="textplace">
+								<p class="p-0 m-0">{{mymtblog[4]}}</p>
+							</div>
+							<div>
+								<span class="badge badge-sm">Posted: {{mymtblog[7]}}</span>
+							</div>
+						</div>
+						<div class="col-md-10">
+							<span class="badge badge-hashtag badge-sm"># {{mymtblog[3]}}</span>
+							<span class="badge badge-sm">Author: {{mymtblog[9]}}</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row my-2 justify-content-center align-items-center" style="height:150px">
+		<div class="col-md-7 subsrcibeholder">
+			<div class="subscribetitle d-flex align-items-center justify-content-center py-2">
+				<h6 class="text-center">Subscribe</h6> 
+				<div class="p-1 mx-4 d-flex justify-content-center align-items-center rounded-circle border">
+					<img class="" src="{{url_for('static',filename='icons/mail.png')}}" height="20" width="20">
+				</div> 
+				<h6 class="text-center">Blog</h6>
+			</div>
+			<div class="input-group justify-content-center">
+				<input type="email" name="subscribemail" placeholder="Email address" required class="form-control form-control-sm">
+				<div class="input-group-append">
+					<button class="btn btn-sm btn-danger">Subscribe</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="footer container-fluid">
+	<div class="row justify-content-center">
+	<div class="col-md-3 text-center">
+		<h6 class="text-center">About</h6>
+		<p>These purpose of this web is to explorer through my projects, hire me for services,get my cv  and interact with me on this platform.</p>
+	</div>
+	<div class="col-md-3 divuslink">
+		<h6 class="text-center">Useful Links</h6>
+		<div class="text-center">
+			<div class="mlist"><a href="/Service"> Web Development</a></div>
+			<div class="mlist"><a href="/Service"> Web Design</a></div>
+			<div class="mlist"><a href="/Blog"> Blog</a></div>
+			<div class="mlist"><a href="/Projects"> Projects</a></div>
+		</div>
+	</div>
+	<div class="col-md-4 text-center divcont">
+		<h6 class="text-center">Contact</h6>
+		<div><img src="{{url_for('static',filename='icons/home.png')}}" height="18" width="18"> Murang'a Kenya</div>
+		<div><img src="{{url_for('static',filename='icons/mail.png')}}" height="18" width="18"> ericgichuri2605@gmail.com</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +254707273244</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +25459091813</div>
+	</div>
+	<div class="col-md-10 mt-3">
+		<div class="row justify-content-end divsocial">
+			<div class="col-md-4 socials col-sm-9 col-9">
+				<a href="https://fb.me/ericsoftwaresolutions"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/facebook.png')}}" height="18" width="18"></button></a>
+				<a href="https://instagram/@ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/instagram.png')}}" height="18" width="18"></button></a>
+				<a href="https://twitter.com/EGichuri/photo"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/twitter.png')}}" height="18" width="18"></button></a>
+				<a href="https://wa.me/c/254707273244"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/whatsapp.png')}}" height="18" width="18"></button></a>
+				<a href="https://www.youtube.com/channel/UChrnUdYmrdehyz3HcXeYNsg"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/youtube.png')}}" height="18" width="18"></button></a>
+				<a href="https://github.com/ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/github.png')}}" height="18" width="18"></button></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10 mt-1">
+		<div class="row justify-content-center p-3">
+			<div class="col-md-5 text-center">Developed By: <a href="mailto:ericgichuri2605@gmail.com">Eric Gichuri</a></div>
+		</div>
+	</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/blog.js')}}"></script>
+</body>
+</html>

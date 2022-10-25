@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='images/ESSLOGO.png')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/css/bootstrap.min.css')}}">
+	<title>Eric Gichuri | AdminLogin</title>
+</head>
+<body>
+<div class="navbar">
+	<div class="navholder">
+        <img src="{{url_for('static',filename='images/ESSLOGO.png')}}" height="40" width="40">
+        <h6 class="mr-auto ml-2">Eric Gichuri</h6>
+        <ul class="list-unstyled text-center ml-auto">
+            <li class="menulist list-inline-item"><a href="/">Home</a></li>
+			<li class="menulist list-inline-item"><a href="/Service">Services</a></li>
+			<li class="menulist list-inline-item"><a href="/Projects">Projects</a></li>
+			<li class="menulist list-inline-item"><a href="/Blog">Blog</a></li>
+			<li class="menulist list-inline-item"><a href="/Contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="menubtnhol" data="hidden"><img src="{{url_for('static',filename='icons/menubtn.png')}}" height="18" width="18"></div>
+</div>
+<div class="container-fluid mainholder">
+	<div class="row justify-content-center align-items-center" style="height: 100%;">
+		<div class="col-md-5">
+			<form action="" method="post" class="border border-primary p-3">
+				<h6 class="text-center">Admin Login</h6>
+				{% for message in get_flashed_messages() %}
+				{% if message=="" %}
+				{% else%}
+				<p class="text-danger">{{message}}</p>
+				{% endif %}
+				{% endfor %}
+				<div class="form-group">
+					<label>Username: </label>
+					<input type="text" name="username" class="form-control" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label>Password: </label>
+					<input type="password" name="password" class="form-control" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-sm btn-block btnlogin">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="footer container-fluid">
+	<div class="row justify-content-center">
+	<div class="col-md-3 text-center">
+		<h6 class="text-center">About</h6>
+		<p>These purpose of this web is to explorer through my projects, hire me for services,get my cv  and interact with me on this platform.</p>
+	</div>
+	<div class="col-md-3 divuslink">
+		<h6 class="text-center">Useful Links</h6>
+		<div class="text-start">
+			<div class="mlist"><a href="/Service"> Web Development</a></div>
+			<div class="mlist"><a href="/Service"> Web Design</a></div>
+			<div class="mlist"><a href="/Blog"> Blog</a></div>
+			<div class="mlist"><a href="/Projects"> Projects</a></div>
+		</div>
+	</div>
+	<div class="col-md-4 divcont">
+		<h6 class="text-center">Contact</h6>
+		<div><img src="{{url_for('static',filename='icons/home.png')}}" height="18" width="18"> Murang'a Kenya</div>
+		<div><img src="{{url_for('static',filename='icons/mail.png')}}" height="18" width="18"> ericgichuri2605@gmail.com</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +254707273244</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +25459091813</div>
+	</div>
+	<div class="col-md-10 mt-3">
+		<div class="row justify-content-end divsocial">
+			<div class="col-md-4 socials col-sm-9 col-9">
+				<a href="https://fb.me/ericsoftwaresolutions"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/facebook.png')}}" height="18" width="18"></button></a>
+				<a href="https://instagram/@ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/instagram.png')}}" height="18" width="18"></button></a>
+				<a href="https://twitter.com/EGichuri/photo"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/twitter.png')}}" height="18" width="18"></button></a>
+				<a href="https://wa.me/c/254707273244"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/whatsapp.png')}}" height="18" width="18"></button></a>
+				<a href="https://www.youtube.com/channel/UChrnUdYmrdehyz3HcXeYNsg"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/youtube.png')}}" height="18" width="18"></button></a>
+				<a href="https://github.com/ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/github.png')}}" height="18" width="18"></button></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10 mt-1">
+		<div class="row justify-content-center p-3">
+			<div class="col-md-5 text-center">Developed By: <a href="mailto:ericgichuri2605@gmail.com">Eric Gichuri</a></div>
+		</div>
+	</div>
+	</div>
+</div>
+<style type="text/css">
+	body{
+		padding: 0;
+		margin: 0;
+	}
+	.header{
+		height: 10vh;
+		background: #000088;
+	}
+	.mainholder{
+		height: 70vh;
+	}
+	
+	.navbar{
+	margin: 0;
+	background: #000088;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.navbar > *{
+	color: #deea00;
+}
+.navholder{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+}
+
+.logo{
+	align-self: center;
+}
+.menubtnhol{
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	background: #000066;
+	padding: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+	cursor: pointer;
+	display: none;
+}
+.menubtnhol img{
+	user-select: none;
+}
+.menu .menulist{
+	padding: 3px;
+	margin: 10px;
+	list-style: none;
+}
+.menulist a{
+	text-decoration: none;
+	color:#deea00 ;
+	transition: 0.5s ease-out;
+	font-weight: 400;
+}
+.menulist a:hover{
+	color: deeppink;
+	border-bottom: 1px solid deeppink;
+
+}
+
+.mynav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 100%;
+    margin-right: 10px;
+    transition: 3s ease-in-out;
+}
+	form{
+		background: rgba(0, 0, 200, 0.3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	form .form-control{
+		width: 250px;
+		box-shadow: none !important;
+		outline: none !important;
+		border: 1px solid #000088;
+	}
+	form .form-control:focus{
+		outline: none;
+		border: 1px solid #000088;
+	}
+	form .btnlogin{
+		width: 240px;
+		background: #000088;
+		color: #deea00;
+	}
+	.footer{
+		background: #000088;
+		color:#deea00 ;
+		justify-content: flex-start;
+		}
+	.footer .socials button{
+		background: #000088;
+	}
+	.footer a{
+		text-decoration: none;
+		color: #1a75ff;
+		transition: 0.3s;
+		color: whitesmoke;
+	}
+	.footer  .mlist a{
+		text-decoration: none;
+		color: #1a75ff;
+		transition: 0.3s;
+	}
+	.footer .mlist a:hover{
+		color: deeppink;
+		border-bottom: 1px solid deeppink;
+	}
+	.divsocial{
+		display: flex !important;
+		justify-content: flex-end;
+	}
+	@media(max-width: 800px){
+		.divuslink{
+			text-align: center !important;
+		}
+		.divcont{
+			text-align: center !important;
+		}
+		.divsocial .social{
+			margin-left: auto;
+		}
+		.menubtnhol{
+		display: block;
+		z-index: 100;
+	}
+	.menu{
+		position: absolute;
+		right: -250px;
+		width: 250px;
+		display: block;
+	}
+	.navholder ul{
+		display: none;
+		position: absolute;
+		top: 60px;
+		right: 1px;
+		width: 200px;
+		background: rgba(0, 0, 136, 0.8);
+		z-index: 50;
+		padding: 0;
+		margin: 0;
+	}
+	.navholder ul li{
+		line-height: 35px;
+		width: 100%;
+		padding: 5px;
+		border-bottom: 1px solid rgb(220, 230, 0);
+	}
+	.navholder ul li a{
+		width: 100%;
+		text-align: center;
+		border: none;
+	}
+	.navholder ul li a:hover{
+		border-bottom: none;
+	}
+	.navbar ul.show{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	}
+.socials .btn{
+	outline: none !important;
+	box-shadow: none !important;
+	padding: 1px;
+	margin: 0px;
+}
+</style>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$(".menubtnhol").click(function(){
+		btnstatus=$(this).attr("data")
+		if (btnstatus=="hidden"){
+			$(".navbar ul").addClass('show')
+			$(this).attr("data","show")
+			$(".menubtnhol img").attr("src","/static/icons/close.png")
+		}else if(btnstatus=="show"){
+			$(".navbar ul").removeClass('show')
+			$(this).attr("data","hidden")
+			$(".menubtnhol img").attr("src","/static/icons/menubtn.png")
+		}
+		
+	})
+})
+</script>
+</body>
+</html>

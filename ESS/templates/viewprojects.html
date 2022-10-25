@@ -1,0 +1,140 @@
+<style type="text/css">
+	.wrapper{
+		width: 100%;
+		height: 100%;
+		font-family: times;
+	}
+	table button{
+		width: 80px;
+	}
+	.btnedit{
+		background: #000088;
+		color: rgb(220, 230, 0);
+	}
+	.projectinfo{
+		font-size: 12px;
+	}
+	.projectlink{
+		font-size: 13px;
+	}
+	.input-group{
+		margin-top: 5px;
+	}
+	/*.input-group-prepend{
+		background: #000088 !important;
+		color: rgb(220, 230, 0);
+	}*/
+	.input-group-text{
+		width: 60px;
+		background: #000088 !important;
+		color: rgb(220, 230, 0);
+	}
+	.form-control{
+		box-shadow: none !important;
+		outline: none !important;
+		border: 1px solid #000088;
+		min-width: 150px;
+	}
+</style>
+<div class="row wrapper p-2">
+	<div class="col-md-12">
+		<h6 class="text-center">View  projects</h6>
+	</div>
+	<div class="col-md-12">
+		<table class="table table-condensed table-striped table-hover table-light">
+			<thead class="thead-dark text-center">
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Brief info</th>
+					<th>Image 1</th>
+					<th>Image 2</th>
+					<th>Link</th>
+					<th>Status</th>
+					<th colspan="2">Operation</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for project in projects %}
+				<tr id="{{project[0]}}">
+					<td data-target="id">{{project[0]}}</td>
+					<td data-target="title">{{project[1]}}</td>
+					<td data-target="briefinfo" class="projectinfo">{{project[2]}}</td>
+					<td hidden data-target="description">{{project[3]}}</td>
+					<td hidden data-target="dateposted">{{project[4]}}</td>
+					<td><img src="static/images/uploads/{{project[5]}}" height="90" width="90"></td>
+					<td><img src="static/images/uploads/{{project[6]}}" height="90" width="90"></td>
+					<td data-target="link" class="projectlink"><a href="{{project[7]}}">{{project[7]}}</a></td>
+					<td data-target="status">{{project[8]}}</td>
+					<td hidden data="postedby">{{project[9]}}</td>
+					<td><button data-role="edit" data-id={{project[0]}} class="btn btn-sm btnedit">Edit</button></td>
+					<td><button data-role="delete" data-id={{project[0]}} class="btn btn-sm btndelete btn-danger">Delete</button></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="my-modal" class="modal modalview" tabindex="-1" role="dialog" aria-hidden="true" style="background:rgba(0,0,0,0.4);" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content p-0 m-0" style="width:700px">
+        	<div class="modal-header" style="background: #000088;">
+        		<h5 class="viewtext modal-title text-center" style="color:rgb(220, 230, 0);">Edit projects</h5>
+        		<button type="button" class="close btn btnclosemodal btn-sm" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: rgb(220, 230, 0);">&times;</span>
+                </button>
+        	</div>
+            <div class="modal-body p-0 m-0 text-white" id="mymodalbody">
+            	
+            	<form class="row p-1">
+            		<div class="col-md-5">
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Title</span>
+            				</div>
+            				<input type="text" name="eprojecttitle" id="eprojecttitle" class="form-control form-control-sm">
+            			</div>
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Info</span>
+            				</div>
+            				<input type="text" name="ebriefinfo" id="ebriefinfo" class="form-control form-control-sm">
+            			</div>
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Descri</span>
+            				</div>
+            				<textarea name="eprojectdescription" id="eprojectdescription" class="form-control form-control-sm"></textarea>
+            			</div>
+            		</div>
+            		<div class="col-md-5">
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Date</span>
+            				</div>
+            				<input type="date" name="edateposted" id="edateposted" class="form-control form-control-sm">
+            			</div>
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Link</span>
+            				</div>
+            				<input type="text" name="eprojectlink" id="eprojectlink" class="form-control form-control-sm">
+            			</div>
+            			<div class="input-group input-group-sm flex-nowrap">
+            				<div class="input-group-prepend">
+            					<span class="input-group-text">Status</span>
+            				</div>
+            				<input type="text" name="eprojectstatus" id="eprojectstatus" class="form-control form-control-sm">
+            			</div>
+            		</div>
+            	</form>
+        	</div>
+        	<div class="modal-footer">
+        		<button class="btn btn-sm btn-outline-danger btnclosemodal">Close</button>
+        	</div>
+    	</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/viewprojects.js')}}"></script>

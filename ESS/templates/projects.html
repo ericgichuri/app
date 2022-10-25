@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eric Gichuri | Projects</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='images/ESSLOGO.png')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/projects.css')}}">
+</head>
+<body>
+<div class="navbar">
+	<div class="navholder">
+        <img src="{{url_for('static',filename='images/ESSLOGO.png')}}" height="40" width="40">
+        <h6 class="mr-auto ml-2">Eric Gichuri</h6>
+        <ul class="list-unstyled text-center ml-auto">
+            <li class="menulist list-inline-item"><a href="/">Home</a></li>
+			<li class="menulist list-inline-item"><a href="/Service">Services</a></li>
+			<li class="menulist list-inline-item"><a href="/Projects">Projects</a></li>
+			<li class="menulist list-inline-item"><a href="/Blog">Blog</a></li>
+			<li class="menulist list-inline-item"><a href="/Contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="menubtnhol" data="hidden"><img src="{{url_for('static',filename='icons/menubtn.png')}}" height="18" width="18"></div>
+</div>
+<div class="container-fluid bg-light">
+	<div class="row justify-content-center">
+		<div class="col-md-10">
+			<h2 class="text-primary text-center">
+            Welcome to my projects
+        </h2>
+        <h5 class="text-center">
+            Here you will get my projects and get to under what they contain and how they function.These are not all projects you can also follow me on github to see all projects.Just Explorer to get every feature the project has.
+            To request the app just call,Email or message me on my social media at the footer or bottom of the page.
+        </h5>
+        <h5 class="text-center text-success">
+            Download My android app here<br>
+            <a href="static/files/ericapp.apk"><button class="btn btn-primary btn-sm font-weight-bold">download</button></a>
+        </h5>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		{% for row in projectcontent %}
+		<div class="col-md-10 border border-primary p-2 m-2">
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<h3 class="text-center">{{row[1]}}</h3>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				
+				
+				<div class="col-md-5">
+					<img src="static/images/uploads/{{row[5]}}" class="img-fluid bg-dark p-2 m-1">
+					<!--<img src="static/images/uploads/{{row[6]}}" class="img-fluid p-2 m-1">-->
+				</div>
+				
+				<div class="col-md-5 text-center">
+					<p>{{row[2]}}</p>
+					<p>{{row[3]}}</p>
+					<div class="d-flex justify-content-around">
+						<a href="/Projects/{{row[0]}}"><span class="m-1"><img src="{{url_for('static',filename='icons/viewlink.png')}}" height="17" width="17"></span>View Link</a>
+						<a target="_blank" href="{{row[7]}}"><span class="m-1"><img src="{{url_for('static',filename='icons/link.png')}}" height="17" width="17"></span> External Link</a>
+					</div>
+					
+				</div>
+				<div class="col-md-9 pt-1 my-1">
+					<div class="d-flex justify-content-around align-items-center border">
+						<label><span><img src="{{url_for('static',filename='icons/user.png')}}" height="20" width="20"></span>By: {{row[9]}}</label>
+						<label><span><img src="{{url_for('static',filename='icons/calendar.png')}}" height="20" width="20"></span>Date: {{row[4]}}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+<div class="footer container-fluid">
+	<div class="row justify-content-center">
+	<div class="col-md-3 text-center">
+		<h6 class="text-center mt-1">About</h6>
+		<p>These purpose of this web is to explorer through my projects, hire me for services,get my cv  and interact with me on this platform.</p>
+	</div>
+	<div class="col-md-3 divuslink">
+		<h6 class="text-center mt-1">Useful Links</h6>
+		<div class="text-start">
+			<div class="mlist"><a href="/Service"> Web Development</a></div>
+			<div class="mlist"><a href="/Service"> Web Design</a></div>
+			<div class="mlist"><a href="/Blog"> Blog</a></div>
+			<div class="mlist"><a href="/Projects"> Projects</a></div>
+		</div>
+	</div>
+	<div class="col-md-4 divcont">
+		<h6 class="text-center mt-1">Contact</h6>
+		<div><img src="{{url_for('static',filename='icons/home.png')}}" height="18" width="18"> Murang'a Kenya</div>
+		<div><img src="{{url_for('static',filename='icons/mail.png')}}" height="18" width="18"> ericgichuri2605@gmail.com</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +254707273244</div>
+		<div><img src="{{url_for('static',filename='icons/phone.png')}}" height="18" width="18"> +25459091813</div>
+	</div>
+	<div class="col-md-10 mt-3">
+		<div class="row justify-content-end divsocial">
+			<div class="col-md-4 socials col-sm-9 col-9">
+				<a href="https://fb.me/ericsoftwaresolutions"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/facebook.png')}}" height="18" width="18"></button></a>
+				<a href="https://instagram/@ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/instagram.png')}}" height="18" width="18"></button></a>
+				<a href="https://twitter.com/EGichuri/photo"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/twitter.png')}}" height="18" width="18"></button></a>
+				<a href="https://wa.me/c/254707273244"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/whatsapp.png')}}" height="18" width="18"></button></a>
+				<a href="https://www.youtube.com/channel/UChrnUdYmrdehyz3HcXeYNsg"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/youtube.png')}}" height="18" width="18"></button></a>
+				<a href="https://github.com/ericgichuri"><button class="btn btn-sm"><img src="{{url_for('static',filename='icons/github.png')}}" height="18" width="18"></button></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10 mt-1">
+		<div class="row justify-content-center p-3">
+			<div class="col-md-5 text-center">Developed By: <a href="mailto:ericgichuri2605@gmail.com">Eric Gichuri</a></div>
+		</div>
+	</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/index.js')}}"></script>
+</body>
+</html>

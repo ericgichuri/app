@@ -1,0 +1,122 @@
+<style type="text/css">
+	.formaddproject{
+		border: none;
+	}
+	.mywrapper{
+		width: 100%;
+		height: 100%;
+		
+	}
+	.formaddproject .form-group{
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0;
+	}
+	.formaddproject .form-group .form-control{
+		outline: none !important;
+		box-shadow: none !important;
+		border: 1px solid #000088;
+	}
+	.formaddproject .form-group .form-control:focus{
+		outline: none;
+	}
+	.customuploadwrapper{
+		position: relative;
+		margin-top: 5px;
+	}
+	.customuploadwrapper input{
+		width: 200px;
+		cursor: pointer;
+		height: 40px;
+		position: absolute;
+		opacity: 0;
+	}
+	.customuploadwrapper button{
+		width: 200px;
+		background: #000088;
+		color: rgb(220, 230, 0);
+		box-shadow: none !important;
+		height: 40px;
+	}
+	.btnhol1 button{
+		width: 200px;
+		background: #000088;
+		color: rgb(220, 230, 0);
+		height: 40px;
+	}
+	.btnhol1 button.btn-cancel{
+		background: #f0f0f0;
+		color: #000088;
+		box-shadow: 1px;
+	}
+	.imageswrapperholder{
+		display: flex;
+		flex-direction: row;
+	}
+	@media(max-width: 850px){
+		.imageswrapperholder{
+			flex-direction: column;
+		}
+	}
+	.mywrapper{
+		font-family: times;
+	}
+</style>
+<div class="row justify-content-center align-items-start mywrapper p-2">
+	
+	<div class="col-md-10">
+		<form class="row justify-content-center formaddproject p-3" method="post" action="" enctype="multipart/form-data">
+			<div class="col-md-10">
+				<h5 class="text-center">Add Project</h5>
+				<p class="text-danger text-center">* please fill in all fields</p>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Project Title</label>
+					<input type="text" name="projecttitle" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Brief Info</label>
+					<input type="text" name="briefinfo" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Project Title</label>
+					<textarea class="form-control" name="projectdescription"></textarea>
+				</div>
+				<div class="form-group">
+					<label>Project Link</label>
+					<input type="text" name="projectlink" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6 pt-1 imageswrapperholder">
+				<div class="form-group m-2">
+					<p class="text-center">Image 1</p>
+					<div class="img1hol">
+						<img src="" height="200" width="200">
+					</div>
+					<div class="customuploadwrapper d-flex flex-column">
+						<input type="file" name="img1" class="form-control uploadimg1">
+						<button type="button" class="btn btn-sm">Select Image</button>	
+					</div>
+					
+				</div>
+				<div class="form-group m-2">
+					<p class="text-center">Image 2</p>
+					<div class="img2hol">
+						<img src="" height="200" width="200">
+					</div>
+					<div class="customuploadwrapper d-flex flex-column">
+						<input type="file" name="img2" class="form-control uploadimg2">
+						<button type="button" class="btn btn-sm">Select Image</button>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10 mt-3 btnhol1 d-flex justify-content-center">
+				<button class="btn btn-sm mx-2">Save</button>
+				<button type="reset" class="btn btn-sm mx-2 btn-cancel btn-outline-danger">Cancel</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='scripts/addproject.js')}}"></script>

@@ -1,0 +1,64 @@
+body{
+	padding: 0;
+	margin: 0;
+	overflow-y: hidden;
+	font-family: times;
+}
+.navbar{
+	height: 10vh;
+	background: #000088;
+	color: rgb(220,230,0);
+}
+.navbar a{
+	text-decoration: none;
+	color: rgb(220,230, 0);
+}
+.navbar a:hover{
+	color: deeppink;
+}
+.mainholder{
+	height: 83vh;
+}
+.footer{
+	background: #000088;
+	height: 7vh;
+	color: rgb(220, 230, 0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.footer a{
+	text-decoration: none;
+	color: whitesmoke;
+}
+.footer a:hover{
+	color: deeppink;
+}
+.mainholder .sidebar{
+	width: 200px;
+	background: #000088;
+	color: rgb(220, 230, 0);
+	overflow-y: auto;
+	height: 100%;
+}
+.menuholder{
+	margin-top: 30px;
+}
+.menuholder .listdiv{
+	line-height: 35px;
+	border-bottom: 0.5px solid rgb(220, 230, 0);
+	cursor: pointer;
+	
+}
+.menuholder .listdiv li{
+	user-select: none;
+	list-style: none;
+	cursor: pointer;
+	font-weight: 400;
+	padding-left: 5px;
+	transition: 0.5s;
+}
+.menuholder .listdiv li:hover{
+	background: rgb(220, 230, 0);
+	color: #000088;
+}
